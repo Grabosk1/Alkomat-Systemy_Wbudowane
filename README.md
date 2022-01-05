@@ -1,7 +1,7 @@
 # Alkomat-Systemy_Wbudowane
 Projekt zaliczeniowy z przedmiotu Systemy Wbudowane 
 
-# Autorzy 
 
-Sebastian Grabowski 145248
-Tobiasz Gruszczyński 145333
+## Skład zespołu:
+- Tobiasz Gruszczyński *145333*
+- Sebastian Grabowski *145248*
