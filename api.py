@@ -13,7 +13,7 @@ app.config['SESSION_TYPE'] = 'filesystem'
 @app.route('/')
 @app.route('/home')
 def home():
-    return render_template('home.html')
+    return render_template('projekt.html')
 
 
 @app.route('/raport', methods=["GET", "POST"])
@@ -27,18 +27,11 @@ def raport():
     else:
         db_r, cursor_r = cursor()
 
-        print('test')
-
         cursor_r.execute('DELETE FROM wyniki WHERE id > 0')
 
         db_r.commit()
 
         return render_template('raport.html')
-
-
-@app.route('/projekt', methods=["GET"])
-def projekt():
-    return render_template('projekt.html')
 
 
 @app.route('/login', methods=["GET", "POST"])
