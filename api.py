@@ -41,8 +41,22 @@ def login():
     else:
         login = request.form.get('login')
         haslo = request.form.get('hasło')
+        
+        trzezwi = request.form.get('trzezwi')
+        nietrzezwi = request.form.get('nietrzezwi')
+        if trzezwi == 'trzezwi':
+            db_r, cursor_r = cursor()
 
-        if login == 'admin' and haslo == "admin":
+            cursor_r.execute('SELECT * FROM wyniki where text = "Zdolny do pracy" ')
+            all_rows = cursor_r.fetchall()
+            return render_template('trzezwi.html',items=all_rows)
+        elif nietrzezwi == 'nietrzezwi':
+            db_r, cursor_r = cursor()
+
+            cursor_r.execute('SELECT * FROM wyniki where text = "Niezdolny do pracy" ')
+            all_rows = cursor_r.fetchall()
+            return render_template('nietrzezwi.html', items=all_rows)
+        elif login == 'admin' and haslo == "admin":
             return render_template('modyfikacje.html')
         else:
             flash("Błędne dane logowania! Proszę sprawdzić dane logowania i spróbować ponownie.")
