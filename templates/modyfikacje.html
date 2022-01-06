@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 <!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
 <!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8"> <![endif]-->
@@ -48,6 +47,27 @@
 	<!--[if lt IE 9]>
 	<script src="js/respond.min.js"></script>
 	<![endif]-->
+	<script>
+
+	function keyword() {
+	var text= $('#keyword_text').val();
+	  $.ajax({
+				  url: "/keyword",
+				  type: "POST",
+				  data: {text:text}
+			  }).done(function(response) {
+				var html= "";
+				response =response.result;
+					 $.each(response,function(key,val){
+					 console.log(val);
+						html+="<b>Keywords Extracted :</b>"+val
+					});
+					html +="";
+					$(".keyword").append(html);
+				});
+	};
+	</script>
+
 	</head>
 	<body>
 
@@ -59,9 +79,10 @@
 			<h1 id="fh5co-logo"><a href="home"><img src="static/images/logotyp.png" alt="Free HTML5 Bootstrap Website Template" width="65%" ></a></h1>
 			<nav id="fh5co-main-menu" role="navigation">
 				<ul>
-					<li><a href="home">O PROJEKCIE</a></li>
-					<li><a href="raport">RAPORT</a></li>
-					<li class="fh5co-active"><a href="login">MODYFIKACJE</a></li>
+					<li><a href="home">Pulpit</a></li>
+					<li><a href="raport">Raport</a></li>
+					<li class="fh5co-active"><a href="modyfikacje">Modyfikacje</a></li>
+					<li><a href="projekt">O projekcie</a></li>
 				</ul>
 			</nav>
 
@@ -79,8 +100,8 @@
 						<p class="fh5co-lead animate-box" data-animate-effect="fadeInLeft">Możliwe akcje:</p>
 						<p class="animate-box" data-animate-effect="fadeInLeft">
 							1. wyczyszczenie bazy danych <br>
-							2. wykaz pracowników trzeźwych <br>
-							3. wykaz pracowników nietrzeźwych <br>
+							2. pokaż trzeźwych<br>
+							2. pokaż nietrzeźwych<br>
 						</p>
 					</div>
 
@@ -99,26 +120,28 @@
 
 				</div>
 
-            	</form>
-								<form method="POST" action="/raport">
+
+            </form>
+				<form method="POST" action="/login">
 				<div class="row">
 					<div class="col-md-12 animate-box" data-animate-effect="fadeInLeft">
-						<button id="not_drunk_clicked" onclick="keyword()" class="btn btn-primary btn-outline">Pokaż trzeźwych</button>
+						<button id="clean_clicked" onclick="keyword()" class="btn btn-primary btn-outline"  name="trzezwi" placeholder="trzezwi" value="trzezwi" >Pokaż trzeźwych</button>
 					</div>
 
 				</div>
 
-            	</form>
 
-								<form method="POST" action="/raport">
+            </form>
+				<form method="POST" action="/login">
 				<div class="row">
 					<div class="col-md-12 animate-box" data-animate-effect="fadeInLeft">
-						<button id="drunk_clicked" onclick="keyword()" class="btn btn-primary btn-outline">Pokaż nietrzeźwych</button>
+						<button id="clean_clicked" onclick="keyword()" class="btn btn-primary btn-outline" name="nietrzezwi" placeholder="nietrzezwi"  value="nietrzezwi">Pokaż pod wpływem alkoholu</button>
 					</div>
 
 				</div>
 
-            	</form>
+
+            </form>
 
 			</div>
 
@@ -146,4 +169,3 @@
 
 	</body>
 </html>
-
