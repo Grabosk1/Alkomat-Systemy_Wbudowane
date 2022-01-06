@@ -3,7 +3,6 @@ import sqlite3
 from flask_sqlalchemy import SQLAlchemy
 import nltk
 from autocorrect import spell
-from gensim.summarization import summarize as g_sumn
 
 app = Flask(__name__)
 app.secret_key = 'super secret key'
@@ -27,11 +26,16 @@ def raport():
     else:
         db_r, cursor_r = cursor()
 
+        print('test')
+
         cursor_r.execute('DELETE FROM wyniki WHERE id > 0')
 
         db_r.commit()
 
         return render_template('raport.html')
+
+
+
 
 
 @app.route('/login', methods=["GET", "POST"])
@@ -41,7 +45,6 @@ def login():
     else:
         login = request.form.get('login')
         haslo = request.form.get('hasło')
-        
         trzezwi = request.form.get('trzezwi')
         nietrzezwi = request.form.get('nietrzezwi')
         if trzezwi == 'trzezwi':
