@@ -48,6 +48,26 @@
 	<!--[if lt IE 9]>
 	<script src="js/respond.min.js"></script>
 	<![endif]-->
+	<script>
+
+	function keyword() {
+	var text= $('#keyword_text').val();
+	  $.ajax({
+				  url: "/keyword",
+				  type: "POST",
+				  data: {text:text}
+			  }).done(function(response) {
+				var html= "";
+				response =response.result;
+					 $.each(response,function(key,val){
+					 console.log(val);
+						html+="<b>Keywords Extracted :</b>"+val
+					});
+					html +="";
+					$(".keyword").append(html);
+				});
+	};
+	</script>
 
 	</head>
 	<body>
@@ -77,35 +97,31 @@
 			<div class="fh5co-narrow-content">
 				<div class="row">
 					<div class="col-md-5">
-						<h2 class="fh5co-heading animate-box" data-animate-effect="fadeInLeft">Installation Guide</h2>
-						<p class="fh5co-lead animate-box" data-animate-effect="fadeInLeft">Install the packages:</p>
+						<h2 class="fh5co-heading animate-box" data-animate-effect="fadeInLeft">Modyfikacje bazy danych</h2>
+						<p class="fh5co-lead animate-box" data-animate-effect="fadeInLeft">Możliwe akcje:</p>
 						<p class="animate-box" data-animate-effect="fadeInLeft">
-							1. nltk <br>
-							2. autospell<br>
-							3. gensim<br>
-
+							1. wyczyszczenie bazy danych <br>
+							2. ...<br>
 						</p>
 					</div>
 
 				</div>
 
-			</div>
-
-
-
-			<div class="fh5co-narrow-content">
 				<div class="row">
 					<div class="col-md-4 animate-box" data-animate-effect="fadeInLeft">
-						<h1 class="fh5co-heading-colored">Start Coding! </h1>
+						<h1 class="fh5co-heading-colored">Wybierz akcje </h1>
 					</div>
 				</div>
+				<form method="POST" action="/raport">
 				<div class="row">
 					<div class="col-md-12 animate-box" data-animate-effect="fadeInLeft">
-						<p class="fh5co-lead">Start with Pre Processing</p>
-						<p><a href="preproc" class="btn btn-primary btn-outline">Learn More</a></p>
+						<button id="clean_clicked" onclick="keyword()" class="btn btn-primary btn-outline">Wyczyść</button>
 					</div>
 
 				</div>
+
+            </form>
+
 			</div>
 
 		</div>
