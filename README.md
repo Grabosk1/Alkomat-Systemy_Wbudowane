@@ -2,6 +2,7 @@
 Projekt zaliczeniowy z przedmiotu Systemy Wbudowane 
 
 ### Cel projektu:
+
 Celem projektu jest zaprojektowanie układu, którego zadaniem będzie mierzenie alkoholu w wydychanym 
 powietrzu pracowników firmy. Dodatkowo wyniki będą wyświetlane na wyświetlaczu LCD oraz zapisywane 
 w bazie danych. Aby wykonać pomiar, będzie trzeba przyłożyć kartę, która będzie identyfikatorem 
@@ -17,6 +18,7 @@ postawionym na BeagleBone Black.
 
 
 ### 1. Zakres projekt
+
 Opis celu oraz zakresu projektu został umieszczony w karcie projektu. Szczególnie temat 
 części ‘fizycznej’ został w niej w niej wyczerpany. Kilka słów należy jednak dodać do części 
 softwarowej.
@@ -54,7 +56,9 @@ w wydychanym przez nas powietrzu.
 ![image](https://user-images.githubusercontent.com/56175973/160385729-380c9ffc-22e4-4d30-8d7f-365eaae6a8cc.png)
 
 
-### 5.Podsumowując nasz projekt, udało nam się uzyskać podstawową funkcjonalność projektu. 
+### 5. Kilka słów podsumowania
+
+Podsumowując nasz projekt, udało nam się uzyskać podstawową funkcjonalność projektu. 
 Zbudowaliśmy alkomat połączony z BeagleBoneBlack, który umożliwia nam swobodny 
 dostęp do bazy danych pomiarów. Alkomat ten znalazłby swoje zastosowanie w tym 
 momencie, ale z pewnością jest on dobrym wstępem do budowy pełnoprawnego alkomatu, 
